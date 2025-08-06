@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://2jy2r3e48khp"]
+
+[ext_resource type="ArrayMesh" uid="uid://8fm4scbycxba" path="res://Meshes/CylinderMesh1.tres" id="1_h670h"]
+[ext_resource type="Shader" uid="uid://dev7nbhux4q18" path="res://s_dynamic_shader.tres" id="1_i04f6"]
+
+[sub_resource type="Environment" id="Environment_m687h"]
+background_energy_multiplier = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72s0u"]
+render_priority = 0
+shader = ExtResource("1_i04f6")
+
+[sub_resource type="Curve" id="Curve_1ju1e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_nx5u1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_e40e8"]
+max_value = 10.0
+_data = [Vector2(0, 0.021978), 0.0, 0.0, 0, 0, Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_68d0m"]
+curve_x = SubResource("Curve_1ju1e")
+curve_y = SubResource("Curve_nx5u1")
+curve_z = SubResource("Curve_e40e8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vfat"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_68d0m")
+color = Color(0, 0.898039, 1, 1)
+
+[node name="VFX_sandbox_map" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m687h")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+material_override = SubResource("ShaderMaterial_72s0u")
+amount = 1
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_6vfat")
+draw_pass_1 = ExtResource("1_h670h")
