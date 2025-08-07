@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://2jy2r3e48khp"]
+[gd_scene load_steps=11 format=3 uid="uid://2jy2r3e48khp"]
 
 [ext_resource type="ArrayMesh" uid="uid://8fm4scbycxba" path="res://Meshes/CylinderMesh1.tres" id="1_h670h"]
 [ext_resource type="Shader" uid="uid://dev7nbhux4q18" path="res://s_dynamic_shader.tres" id="1_i04f6"]
+[ext_resource type="Texture2D" uid="uid://bcjkqspw1u1vn" path="res://textures/T_VFX_Noise_9.PNG" id="2_bkm2r"]
 
 [sub_resource type="Environment" id="Environment_m687h"]
 background_energy_multiplier = 0.5
@@ -9,6 +10,9 @@ background_energy_multiplier = 0.5
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_72s0u"]
 render_priority = 0
 shader = ExtResource("1_i04f6")
+shader_parameter/Speed = Vector2(1.5, 0)
+shader_parameter/Texture_power = 2.1
+shader_parameter/Energy_texture = ExtResource("2_bkm2r")
 
 [sub_resource type="Curve" id="Curve_1ju1e"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -31,7 +35,7 @@ curve_z = SubResource("Curve_e40e8")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vfat"]
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveXYZTexture_68d0m")
-color = Color(0, 0.898039, 1, 1)
+color = Color(0, 0.898039, 1, 0.529412)
 
 [node name="VFX_sandbox_map" type="Node"]
 
@@ -40,7 +44,7 @@ environment = SubResource("Environment_m687h")
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+[node name="MainEnergyBeam" type="GPUParticles3D" parent="Node3D"]
 material_override = SubResource("ShaderMaterial_72s0u")
 amount = 1
 lifetime = 2.0
