@@ -4,11 +4,14 @@
 
 [sub_resource type="Environment" id="Environment_m687h"]
 background_energy_multiplier = 0.5
+tonemap_mode = 2
 glow_enabled = true
+glow_blend_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rp4t6"]
 render_priority = 0
 shader = ExtResource("1_gvvyb")
+shader_parameter/Vector2Parameter = Vector2(0, 0.7)
 
 [sub_resource type="QuadMesh" id="QuadMesh_wx0bm"]
 
@@ -19,8 +22,9 @@ environment = SubResource("Environment_m687h")
 
 [node name="VFX_Fire" type="Node3D" parent="."]
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="VFX_Fire"]
+[node name="Fire" type="CPUParticles3D" parent="VFX_Fire"]
 material_override = SubResource("ShaderMaterial_rp4t6")
 amount = 1
 mesh = SubResource("QuadMesh_wx0bm")
 gravity = Vector3(0, 0, 0)
+color = Color(4, 0.5, 0, 1)
