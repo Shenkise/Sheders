@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://2jy2r3e48khp"]
+[gd_scene load_steps=11 format=3 uid="uid://2jy2r3e48khp"]
 
 [ext_resource type="Shader" uid="uid://i04pdxcmsp42" path="res://Fire/Shaders/s_spetial_shader.tres" id="1_gvvyb"]
+[ext_resource type="Shader" uid="uid://cklt2sgb4v4a0" path="res://Fire/Shaders/s_smoke.tres" id="2_8pke8"]
 
 [sub_resource type="Environment" id="Environment_m687h"]
 background_energy_multiplier = 0.5
@@ -15,6 +16,37 @@ shader_parameter/Vector2Parameter = Vector2(0, 0.7)
 
 [sub_resource type="QuadMesh" id="QuadMesh_wx0bm"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dn11v"]
+render_priority = 0
+shader = ExtResource("2_8pke8")
+
+[sub_resource type="Curve" id="Curve_i4qk5"]
+_data = [Vector2(0.0159363, 1), 0.0, 0.0, 0, 0, Vector2(0.458167, 0.685309), -0.961309, -0.961309, 0, 0, Vector2(1, 0.207847), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i8oq5"]
+curve = SubResource("Curve_i4qk5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3vt72"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -198.6
+angle_max = 157.2
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 0.4
+angular_velocity_min = -180.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 3.5, 0)
+damping_min = 0.2
+damping_max = 0.6
+scale_min = 0.0
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_i8oq5")
+color = Color(1.5, 1.5, 1.5, 0.4)
+
+[sub_resource type="QuadMesh" id="QuadMesh_32ajg"]
+
 [node name="VFX_sandbox_map" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -23,8 +55,18 @@ environment = SubResource("Environment_m687h")
 [node name="VFX_Fire" type="Node3D" parent="."]
 
 [node name="Fire" type="CPUParticles3D" parent="VFX_Fire"]
+sorting_offset = 2.0
 material_override = SubResource("ShaderMaterial_rp4t6")
 amount = 1
 mesh = SubResource("QuadMesh_wx0bm")
 gravity = Vector3(0, 0, 0)
-color = Color(4, 0.5, 0, 1)
+color = Color(6, 1, 0, 1)
+
+[node name="Smoke" type="GPUParticles3D" parent="VFX_Fire"]
+material_override = SubResource("ShaderMaterial_dn11v")
+amount = 20
+lifetime = 1.5
+randomness = 0.1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3vt72")
+draw_pass_1 = SubResource("QuadMesh_32ajg")
