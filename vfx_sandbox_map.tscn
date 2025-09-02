@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2jy2r3e48khp"]
+[gd_scene load_steps=6 format=3 uid="uid://2jy2r3e48khp"]
 
 [ext_resource type="ArrayMesh" uid="uid://d2fd47xi1xows" path="res://Lightning/Meshes/Lightning_editable.tres" id="1_mpi0e"]
 
@@ -6,13 +6,27 @@
 background_energy_multiplier = 0.5
 glow_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_2b6ua"]
+offsets = PackedFloat32Array(0, 0.58296)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oxs38"]
+gradient = SubResource("Gradient_2b6ua")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_270bs"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_oxs38")
+
 [node name="VFX_sandbox_map" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m687h")
 
-[node name="Node3D" type="Node3D" parent="."]
-
 [node name="LightningMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182856, 2.98023e-08, 0.0574485)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4521, 2.98023e-08, 0.0574485)
 mesh = ExtResource("1_mpi0e")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 1
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_270bs")
+draw_pass_1 = ExtResource("1_mpi0e")

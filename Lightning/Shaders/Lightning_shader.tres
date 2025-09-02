@@ -1,0 +1,103 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://cfytuckor6luj"]
+
+[ext_resource type="Texture2D" uid="uid://ny8ndsl5im7k" path="res://Lightning/Textures/Lightning.jpg" id="1_g8act"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_k2rpj"]
+expanded_output_ports = [0]
+texture = ExtResource("1_g8act")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_h8rvl"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_maufp"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_s8txw"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, -0.5)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_i84k3"]
+default_input_values = [0, 0.5, 1, 1.0, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_oihgo"]
+default_input_values = [1, 0.0, 2, 1.0, 3, 0.0, 4, 0.7]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_55lk4"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:8
+	vec4 n_out8p0 = COLOR;
+	float n_out8p1 = n_out8p0.r;
+
+
+	float n_out7p0;
+// Remap:7
+	float n_in7p1 = 0.00000;
+	float n_in7p2 = 1.00000;
+	float n_in7p3 = 0.00000;
+	float n_in7p4 = 0.70000;
+	{
+		float __input_range = n_in7p2 - n_in7p1;
+		float __output_range = n_in7p4 - n_in7p3;
+		n_out7p0 = n_in7p3 + __output_range * ((n_out8p1 - n_in7p1) / __input_range);
+	}
+
+
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// VectorOp:5
+	vec2 n_in5p1 = vec2(0.00000, -0.50000);
+	vec2 n_out5p0 = vec2(n_out4p0) * n_in5p1;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(1.00000, 1.00000);
+	vec2 n_out3p0 = n_out5p0 * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+	float n_out2p1 = n_out2p0.r;
+
+
+// SmoothStep:6
+	float n_in6p1 = 1.00000;
+	float n_out6p0 = smoothstep(n_out7p0, n_in6p1, n_out2p1);
+
+
+// Output:0
+	ALPHA = n_out6p0;
+
+
+}
+"
+graph_offset = Vector2(-127.59, -27.4102)
+modes/cull = 2
+flags/unshaded = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_k2rpj")
+nodes/fragment/2/position = Vector2(-160, 200)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_h8rvl")
+nodes/fragment/3/position = Vector2(-480, 240)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_maufp")
+nodes/fragment/4/position = Vector2(-1020, 300)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_s8txw")
+nodes/fragment/5/position = Vector2(-700, 280)
+nodes/fragment/6/node = SubResource("VisualShaderNodeSmoothStep_i84k3")
+nodes/fragment/6/position = Vector2(160, 100)
+nodes/fragment/7/node = SubResource("VisualShaderNodeRemap_oihgo")
+nodes/fragment/7/position = Vector2(-160, -20)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_55lk4")
+nodes/fragment/8/position = Vector2(-480, -60)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 5, 0, 5, 0, 3, 2, 2, 1, 6, 2, 6, 0, 0, 1, 7, 0, 6, 0, 8, 1, 7, 0)

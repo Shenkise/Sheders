@@ -1,4 +1,10 @@
-[gd_resource type="ArrayMesh" format=4 uid="uid://d2fd47xi1xows"]
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://d2fd47xi1xows"]
+
+[ext_resource type="Shader" uid="uid://cfytuckor6luj" path="res://Lightning/Shaders/Lightning_shader.tres" id="1_5n53a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bg4wr"]
+render_priority = 0
+shader = ExtResource("1_5n53a")
 
 [resource]
 _surfaces = [{
@@ -18,6 +24,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 126,
 "index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcABgAHAAgACAAHAAkACAAJAAoACgAJAAsACgALAAwADAALAA0ADAANAA4ADgANAA8ADgAPABAAEAAPABEAEAARABIAEgARABMAEgATABQAFAATABUAFAAVABYAFgAVABcAFgAXABgAGAAXABkAGAAZABoAGgAZABsAGgAbABwAHAAbAB0AHAAdAB4AHgAdAB8AHgAfACAAIAAfACEAIAAhACIAIgAhACMAIgAjACQAJAAjACUAJAAlACYAJgAlACcAJgAnACgAKAAnACkAKgArAAAAAAArAAEAKAApACoAKgApACsA"),
+"material": SubResource("ShaderMaterial_bg4wr"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
