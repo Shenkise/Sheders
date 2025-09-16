@@ -6,15 +6,21 @@
 background_energy_multiplier = 0.5
 glow_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_2b6ua"]
-offsets = PackedFloat32Array(0, 0.58296)
+[sub_resource type="Gradient" id="Gradient_v65p4"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_oxs38"]
-gradient = SubResource("Gradient_2b6ua")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5e6j7"]
+gradient = SubResource("Gradient_v65p4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_270bs"]
+lifetime_randomness = 0.1
+emission_shape_scale = Vector3(3, 3, 3)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -180.0
+angle_max = 180.0
 gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_oxs38")
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_5e6j7")
 
 [node name="VFX_sandbox_map" type="Node"]
 
@@ -26,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4521, 2.98023e-08, 0.0574
 mesh = ExtResource("1_mpi0e")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-amount = 1
-lifetime = 0.5
+amount = 2
+lifetime = 0.25
 process_material = SubResource("ParticleProcessMaterial_270bs")
 draw_pass_1 = ExtResource("1_mpi0e")

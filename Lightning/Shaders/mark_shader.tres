@@ -1,0 +1,72 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://jb575khhpwq7"]
+
+[ext_resource type="Texture2D" uid="uid://coj5ic6uy4jm4" path="res://Lightning/Textures/floor_mark.jpg" id="1_q3b4f"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ap0sc"]
+expanded_output_ports = [0]
+texture = ExtResource("1_q3b4f")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ruwjt"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_j5iii"]
+function = 31
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_pr3fe"]
+parameter_name = "Mark_Color"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_vermi"]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform vec4 Mark_Color : source_color;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// ColorParameter:7
+	vec4 n_out7p0 = Mark_Color;
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+	float n_out5p1 = n_out5p0.r;
+
+
+// FloatFunc:6
+	float n_out6p0 = 1.0 - n_out5p1;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+	float n_out2p1 = n_out2p0.r;
+
+
+// FloatOp:8
+	float n_out8p0 = n_out6p0 * n_out2p1;
+
+
+// Output:0
+	ALBEDO = vec3(n_out7p0.xyz);
+	ALPHA = n_out8p0;
+
+
+}
+"
+flags/unshaded = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ap0sc")
+nodes/fragment/2/position = Vector2(-200, 340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_ruwjt")
+nodes/fragment/5/position = Vector2(-540, 20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatFunc_j5iii")
+nodes/fragment/6/position = Vector2(-187.677, 107.658)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorParameter_pr3fe")
+nodes/fragment/7/position = Vector2(60, 0)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_vermi")
+nodes/fragment/8/position = Vector2(100, 220)
+nodes/fragment/connections = PackedInt32Array(5, 1, 6, 0, 7, 0, 0, 0, 8, 0, 0, 1, 2, 1, 8, 1, 6, 0, 8, 0)

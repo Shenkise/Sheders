@@ -1,10 +1,22 @@
-[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://d2fd47xi1xows"]
+[gd_resource type="ArrayMesh" load_steps=7 format=4 uid="uid://d2fd47xi1xows"]
 
 [ext_resource type="Shader" uid="uid://cfytuckor6luj" path="res://Lightning/Shaders/Lightning_shader.tres" id="1_5n53a"]
+[ext_resource type="Shader" uid="uid://jb575khhpwq7" path="res://Lightning/Shaders/mark_shader.tres" id="1_qpdw4"]
+[ext_resource type="Shader" uid="uid://cjsbnwxunvxj7" path="res://Lightning/Shaders/wave_shader.tres" id="3_46p82"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3rm36"]
+render_priority = 0
+shader = ExtResource("1_qpdw4")
+shader_parameter/Mark_Color = Color(0, 1, 3, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bg4wr"]
 render_priority = 0
 shader = ExtResource("1_5n53a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3bu5"]
+render_priority = 0
+shader = ExtResource("3_46p82")
+shader_parameter/wave_color = Color(0, 1, 3, 1)
 
 [resource]
 _surfaces = [{
@@ -13,6 +25,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": SubResource("ShaderMaterial_3rm36"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -36,6 +49,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 192,
 "index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUABAAFAAYABgAFAAcABgAHAAgACAAHAAkACAAJAAoACgAJAAsACgALAAwADAALAA0ADAANAA4ADgANAA8ADgAPABAAEAAPABEAEAARABIAEgARABMAEgATABQAFAATABUAFAAVABYAFgAVABcAFgAXABgAGAAXABkAGAAZABoAGgAZABsAGgAbABwAHAAbAB0AHAAdAB4AHgAdAB8AHgAfACAAIAAfACEAIAAhACIAIgAhACMAIgAjACQAJAAjACUAJAAlACYAJgAlACcAJgAnACgAKAAnACkAKAApACoAKgApACsAKgArACwALAArAC0ALAAtAC4ALgAtAC8ALgAvADAAMAAvADEAMAAxADIAMgAxADMAMgAzADQANAAzADUANAA1ADYANgA1ADcANgA3ADgAOAA3ADkAOAA5ADoAOgA5ADsAOgA7ADwAPAA7AD0APAA9AD4APgA9AD8APgA/AEAAQAA/AEEA"),
+"material": SubResource("ShaderMaterial_v3bu5"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
