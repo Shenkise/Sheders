@@ -1,0 +1,72 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://c40in5shqs4t2"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_tlg84"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ygjtr"]
+parameter_name = "hit_texture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_wxnle"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_j3giy"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_qlsy6"]
+billboard_type = 0
+keep_scale = true
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D hit_texture : source_color;
+
+
+
+void vertex() {
+// GetBillboardMatrix:2
+	// Node is disabled and code is not generated.
+}
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+	float n_out2p4 = n_out2p0.a;
+
+
+	vec4 n_out4p0;
+// Texture2D:4
+	n_out4p0 = texture(hit_texture, UV);
+	float n_out4p1 = n_out4p0.r;
+
+
+// FloatOp:5
+	float n_out5p0 = n_out2p4 * n_out4p1;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out5p0;
+
+
+}
+"
+graph_offset = Vector2(-323.688, 142.806)
+modes/cull = 2
+flags/unshaded = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_qlsy6")
+nodes/vertex/2/position = Vector2(80, 400)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_tlg84")
+nodes/fragment/2/position = Vector2(-300, 80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_ygjtr")
+nodes/fragment/3/position = Vector2(-440, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_wxnle")
+nodes/fragment/4/position = Vector2(-100, 340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_j3giy")
+nodes/fragment/5/position = Vector2(180, 260)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 4, 2, 2, 4, 5, 0, 4, 1, 5, 1, 5, 0, 0, 1)

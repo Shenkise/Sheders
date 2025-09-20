@@ -1,9 +1,10 @@
 [gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://cdu7lp34aakow"]
 
-[ext_resource type="Texture2D" uid="uid://crdgpkc7eexou" path="res://textures/T_VFX_Flare_15.PNG" id="1_guag0"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_me7qw"]
+load_path = "res://.godot/imported/T_VFX_Flare_15.PNG-eb81e000d6caa4d21d65f52ccd2d47fe.s3tc.ctex"
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_nqesj"]
-texture = ExtResource("1_guag0")
+texture = SubResource("CompressedTexture2D_me7qw")
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_4q5e0"]
 default_input_values = [0, Quaternion(0, 0, 0, 0)]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8uu0xtywf0nt"
-path.s3tc="res://.godot/imported/T_VFX_Noise_4.PNG-4ce012d8b210c44d5d2fd7415a1d9411.s3tc.ctex"
+uid="uid://b5w02u8nmwnlw"
+path.s3tc="res://.godot/imported/hit_mark_texture.jpg-58e613b7641f6dc78f646bd88e31c0a9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Laser/textures/T_VFX_Noise_4.PNG"
-dest_files=["res://.godot/imported/T_VFX_Noise_4.PNG-4ce012d8b210c44d5d2fd7415a1d9411.s3tc.ctex"]
+source_file="res://Hit_mark/Textures/hit_mark_texture.jpg"
+dest_files=["res://.godot/imported/hit_mark_texture.jpg-58e613b7641f6dc78f646bd88e31c0a9.s3tc.ctex"]
 
 [params]
 
