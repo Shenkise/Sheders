@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jsk5swl15p7l"
-path.s3tc="res://.godot/imported/T_VFX_Glow_1.PNG-b13874af3c550ea0524b5a875b0d88d7.s3tc.ctex"
+uid="uid://nmbl0yesah8c"
+path.s3tc="res://.godot/imported/CustomNoise.jpg-7dca8a24231013f5120576a51400bd5a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Laser/textures/T_VFX_Glow_1.PNG"
-dest_files=["res://.godot/imported/T_VFX_Glow_1.PNG-b13874af3c550ea0524b5a875b0d88d7.s3tc.ctex"]
+source_file="res://textures/CustomNoise.jpg"
+dest_files=["res://.godot/imported/CustomNoise.jpg-7dca8a24231013f5120576a51400bd5a.s3tc.ctex"]
 
 [params]
 

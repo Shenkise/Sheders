@@ -3,19 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnldxs22drio5"
-valid=false
+uid="uid://nb438bpbci2f"
+path="res://.godot/imported/lowpoly_stylized_scimitar.glb-be5f45b89bd0d6c19253a603a9c215fa.scn"
 
 [deps]
 
-source_file="res://Laser/Meshes/Cylinder2.glb"
+source_file="res://Meshes/lowpoly_stylized_scimitar.glb"
+dest_files=["res://.godot/imported/lowpoly_stylized_scimitar.glb-be5f45b89bd0d6c19253a603a9c215fa.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.1
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,14 +33,14 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"Cylinder2_Cylinder_003": {
+"Sketchfab_Scene_Object001_Object001_mtl_0": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/CylinderMesh2.tres"
+"save_to_file/path": "res://Meshes/Dagger.tres"
 }
 }
 }

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc2wnj0m7ppwk"
-path.s3tc="res://.godot/imported/Noise1_tiled.png-7f6d7bd3e429a02eabf64a44e0559e99.s3tc.ctex"
+uid="uid://cseedyk0gj6mr"
+path.s3tc="res://.godot/imported/lowpoly_stylized_scimitar_0.jpg-c0db89293e728778648657e27d1a916b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4d9a7436c8b476b745c95683a83a2311"
+}
 
 [deps]
 
-source_file="res://Laser/textures/Noise1_tiled.png"
-dest_files=["res://.godot/imported/Noise1_tiled.png-7f6d7bd3e429a02eabf64a44e0559e99.s3tc.ctex"]
+source_file="res://Meshes/lowpoly_stylized_scimitar_0.jpg"
+dest_files=["res://.godot/imported/lowpoly_stylized_scimitar_0.jpg-c0db89293e728778648657e27d1a916b.s3tc.ctex"]
 
 [params]
 

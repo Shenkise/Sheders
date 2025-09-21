@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcjkqspw1u1vn"
-path.s3tc="res://.godot/imported/T_VFX_Noise_9.PNG-028372a415684b5c5385150ec60736e9.s3tc.ctex"
+uid="uid://c8afsr8ivrh1s"
+path.s3tc="res://.godot/imported/Blade_mask2.jpg-8ecb9d42d1ec799985e34db9dde0c36f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Laser/textures/T_VFX_Noise_9.PNG"
-dest_files=["res://.godot/imported/T_VFX_Noise_9.PNG-028372a415684b5c5385150ec60736e9.s3tc.ctex"]
+source_file="res://Meshes/Blade_mask2.jpg"
+dest_files=["res://.godot/imported/Blade_mask2.jpg-8ecb9d42d1ec799985e34db9dde0c36f.s3tc.ctex"]
 
 [params]
 

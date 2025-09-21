@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crdgpkc7eexou"
-path.s3tc="res://.godot/imported/T_VFX_Flare_15.PNG-eb81e000d6caa4d21d65f52ccd2d47fe.s3tc.ctex"
+uid="uid://j6ukbkac1176"
+path.s3tc="res://.godot/imported/Blade_mask.jpg-779b5218e728fdb3ce3d3286e2aac47c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Laser/textures/T_VFX_Flare_15.PNG"
-dest_files=["res://.godot/imported/T_VFX_Flare_15.PNG-eb81e000d6caa4d21d65f52ccd2d47fe.s3tc.ctex"]
+source_file="res://Meshes/Blade_mask.jpg"
+dest_files=["res://.godot/imported/Blade_mask.jpg-779b5218e728fdb3ce3d3286e2aac47c.s3tc.ctex"]
 
 [params]
 
