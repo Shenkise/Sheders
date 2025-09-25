@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnldxs22drio5"
-valid=false
+uid="uid://cnaalnqkck25p"
+path="res://.godot/imported/Rocket_flame.gltf-b0ccd724bd8c1cf5ff0d1fe98bd8d1e9.scn"
 
 [deps]
 
-source_file="res://Laser/Meshes/Cylinder2.glb"
+source_file="res://Meshes/Rocket_flame.gltf"
+dest_files=["res://.godot/imported/Rocket_flame.gltf-b0ccd724bd8c1cf5ff0d1fe98bd8d1e9.scn"]
 
 [params]
 
@@ -32,14 +33,14 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"Cylinder2_Cylinder_003": {
+"Rocket_flame_Cylinder": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/CylinderMesh2.tres"
+"save_to_file/path": "res://Meshes/asd.res"
 }
 }
 }
